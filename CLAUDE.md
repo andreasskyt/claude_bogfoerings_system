@@ -8,7 +8,7 @@ trin, i rækkefølge, og fortæl undervejs hvad du gør.
 
 ### 1. Forudsætninger
 
-- Spørg om brugeren har **Dinero Pro eller Total**. Uden det findes API'et ikke — stop her og sig det ærligt.
+- En almindelig Dinero-konto er nok til MCP-adgangen. (REST-fallbacken kræver Dinero Pro/Total.)
 - Tjek at `pdftotext` findes (`which pdftotext`). Mangler det: tilbyd at køre `brew install poppler`
   (macOS) eller pakkemanagerens tilsvarende på Linux.
 
