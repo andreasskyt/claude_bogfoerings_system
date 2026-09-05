@@ -20,47 +20,26 @@ Kopiér hele denne mappe til brugerens skills-mappe, hvis den ikke allerede ligg
 mkdir -p ~/.claude/skills && cp -R . ~/.claude/skills/dinero-bogfoering
 ```
 
-### 3. Skaf API-adgang
+### 3. Forbind til Dinero — MCP (anbefalet)
 
-Guid brugeren igennem i Dinero (detaljer i `references/dinero-api.md`):
-
-1. Log ind på Dinero → vælg virksomheden
-2. Indstillinger → Udvidelser/Integrationer → **API-nøgler**
-3. Vælg **personlig integration** og anmod om credentials
-4. **Client ID + Client Secret** kommer på mail (typisk inden for få timer) — opsætningen kan
-   holde pause her; brugeren siger bare til, når mailen er landet
-5. **API-nøglen** kopieres fra samme side i Dinero
-
-### 4. Gem credentials — aldrig i denne mappe
-
-Bed brugeren selv tilføje dette til sin shell-profil (`~/.zshrc` eller `~/.bashrc`) med de rigtige
-værdier, og genstarte terminalen:
+Tilføj Dineros officielle MCP-server:
 
 ```bash
-export DINERO_CLIENT_ID="..."
-export DINERO_CLIENT_SECRET="..."
-export DINERO_API_KEY="..."
+claude mcp add --transport http --scope user dinero https://mcp.dinero.dk
 ```
 
-Regler: skriv aldrig nøglerne ind i filer i denne mappe, commit dem aldrig til git, og opfordr ikke
-brugeren til at indsætte dem i chatten hvis det kan undgås.
+Bed derefter brugeren køre `/mcp` i en interaktiv session og logge ind via **Visma Connect** (deres
+almindelige Dinero-login). Ingen API-nøgler nødvendige. Genstart sessionen, så værktøjerne indlæses.
 
-### 5. Test forbindelsen og find organisations-ID
+### 4. Test forbindelsen
 
-`DINERO_ORGANIZATION_ID` kendes ikke endnu — den hentes fra API'et:
+Slå organisationen op via MCP-værktøjerne og bekræft virksomhedsnavn og regnskabsår med brugeren.
 
-```bash
-DINERO_ORGANIZATION_ID=0 python3 scripts/dinero_api.py
-```
+### 5. (Valgfrit) REST-API som fallback
 
-Svaret indeholder organisationens navn og `Id`. Vis navnet til brugeren og bekræft at det er den
-rigtige virksomhed. Bed dem derefter tilføje den fjerde linje til shell-profilen:
-
-```bash
-export DINERO_ORGANIZATION_ID="<id fra svaret>"
-```
-
-Kør testen igen uden override og verificér at alt svarer.
+Til masseudtræk, sletninger og batch-kørsler kan REST-API'et sættes op som supplement — se
+`references/dinero-api.md` (kræver Dinero Pro/Total og personlige API-credentials i miljøvariabler;
+aldrig i denne mappe, aldrig i git, aldrig i chatten).
 
 ### 6. Færdig — start arbejdet
 

@@ -1,4 +1,7 @@
-# Dinero API — adgang, autentificering og faldgruber
+# Dinero REST-API — fallback og masseoperationer
+
+**Foretræk MCP-serveren til dagligt arbejde** (se `dinero-adgang.md`). REST-API'et bruges hvor MCP ikke
+rækker: posterings-udtræk til afstemning, sletninger, kontooprettelse og batch-kørsler.
 
 ## Sådan får brugeren API-adgang
 

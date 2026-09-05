@@ -11,14 +11,14 @@ til 0,00 kr afvigelse.
 2. **Åbn [Claude Code](https://claude.com/claude-code)** i mappen
 3. Skriv: **"sæt det op"**
 
-AI'en klarer resten: installerer skillen, guider dig til API-adgang i Dinero, tester forbindelsen
+AI'en klarer resten: installerer skillen, forbinder til Dineros officielle MCP-server med dit eget login, tester forbindelsen
 og fortæller dig præcis hvad du skal gøre for at starte første oprydning.
 
 ## Krav
 
-- **Dinero Pro eller Total** (API'et findes ikke på gratis- og Starter-abonnementer)
-- Claude Code på macOS eller Linux
-- 10 minutter + en kop kaffe (Dinero sender API-nøglerne på mail, typisk inden for få timer)
+- En Dinero-konto og Claude Code på macOS eller Linux
+- 5 minutter — adgangen sker via **Dineros officielle MCP-server** med dit almindelige Dinero-login (Visma Connect). Ingen API-nøgler at vente på.
+- Valgfrit: REST-API som supplement til masseoperationer (kræver Dinero Pro/Total)
 
 ## Hvad den gør
 
@@ -36,7 +36,7 @@ og fortæller dig præcis hvad du skal gøre for at starte første oprydning.
 
 - Intet bogføres uden din eksplicitte godkendelse
 - Skillen indeholder ingen lovpåstande — AI'en researcher gældende regler ved hver brug og viser kilder
-- Dine API-nøgler ligger i miljøvariabler på din egen maskine — aldrig i denne mappe, aldrig i git
+- Adgangen sker med dit eget Dinero-login (Visma Connect) — assistenten kan kun det, du selv kan, og der gemmes ingen nøgler i denne mappe eller i git
 - Værktøjet erstatter ikke din revisor — ved væsentlige eller tvivlsomme forhold: spørg en professionel
 
 ## Licens

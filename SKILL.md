@@ -49,9 +49,17 @@ Kør faserne i rækkefølge. Spring aldrig godkendelses- eller research-fasen ov
 
 ### Fase 0 — Adgang
 
-Verificér at API-adgangen virker, før du lover noget. Se `references/dinero-api.md` for hvordan brugeren
-skaffer credentials (kræver Dinero Pro eller Total). Test forbindelsen og bekræft organisationens navn
-og regnskabsår over for brugeren.
+**Foretræk Dineros officielle MCP-server** — den kræver intet API-nøgle-setup: brugeren logger ind med
+sit eget Dinero-login (Visma Connect), og du arbejder med brugerens egne rettigheder. Se
+`references/dinero-adgang.md` for opsætningen.
+
+Er MCP-serveren forbundet: brug dens værktøjer til opslag, fakturaer, køb, kassekladder, betalinger,
+bilag og rapporter. Serveren er i beta — **tjek hvilke værktøjer den faktisk udstiller** i den aktuelle
+session, og fald tilbage til REST-API'et for det, den ikke dækker (typisk masseudtræk af posteringer,
+sletninger og kontooprettelse). REST kræver Dinero Pro/Total og API-credentials.
+
+Uanset adgangsvej: test forbindelsen og bekræft organisationens navn og regnskabsår over for brugeren,
+før du lover noget.
 
 ### Fase 1 — Plan og spørgsmål
 
@@ -177,7 +185,8 @@ bilags-mailadresse og app-fotografering af papirbonner — det fjerner rekonstru
 
 ## Referencer
 
-- `references/dinero-api.md` — API-adgang, autentificering, endpoints, tekniske faldgruber
+- `references/dinero-adgang.md` — MCP-opsætning (anbefalet) og REST-API som fallback
+- `references/dinero-api.md` — REST-endpoints og tekniske faldgruber (fallback og masseoperationer)
 - `references/lovgivnings-research.md` — HVAD der skal undersøges og HVOR (indeholder ingen svar)
 - `references/bilagsjagt.md` — find dokumentation i mail, lokalt, portaler
 - `references/gateway-model.md` — teknisk model for betalingsgateways (mellemkonto, valuta)
